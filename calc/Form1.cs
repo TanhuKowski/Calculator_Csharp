@@ -10,7 +10,7 @@ namespace calc
         }
         float num1, ans;
         int count;
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             textb1.Text = textb1.Text + 7;
@@ -65,10 +65,17 @@ namespace calc
         {
             try
             {
-                num1 = float.Parse(textb1.Text);
-                textb1.Clear();
-                textb1.Focus();
-                count = 1;
+                if (textb1.Text != "")
+                {
+                    num1 = float.Parse(textb1.Text);
+                    textb1.Clear();
+                    textb1.Focus();
+                    count = 1;
+                }
+                else
+                {
+                    MessageBox.Show("The operator cannot be used before the number !");
+                }
             }
             catch
             {
@@ -87,6 +94,10 @@ namespace calc
                     textb1.Focus();
                     count = 2;
                 }
+                else
+                {
+                    MessageBox.Show("The operator cannot be used before the number !");
+                }
             }
             catch
             {
@@ -98,10 +109,17 @@ namespace calc
         {
             try
             {
-                num1 = float.Parse(textb1.Text);
-                textb1.Clear();
-                textb1.Focus();
-                count = 3;
+                if (textb1.Text != "")
+                {
+                    num1 = float.Parse(textb1.Text);
+                    textb1.Clear();
+                    textb1.Focus();
+                    count = 3;
+                }
+                else
+                {
+                    MessageBox.Show("The operator cannot be used before the number !");
+                }
             }
             catch
             {
@@ -113,10 +131,17 @@ namespace calc
         {
             try
             {
-                num1 = float.Parse(textb1.Text);
-                textb1.Clear();
-                textb1.Focus();
-                count = 4;
+                if (textb1.Text != "")
+                {
+                    num1 = float.Parse(textb1.Text);
+                    textb1.Clear();
+                    textb1.Focus();
+                    count = 4;
+                }
+                else
+                {
+                    MessageBox.Show("The operator cannot be used before the number !");
+                }
             }
             catch
             {
@@ -133,7 +158,14 @@ namespace calc
         private void button6_Click(object sender, EventArgs e)
         {   try
             {
-                compute(count);
+                if (textb1.Text != "")
+                {
+                    compute(count);
+                }
+                else
+                {
+                    MessageBox.Show("The operator cannot be used before the number !");
+                }
             }
             catch
             {
@@ -171,7 +203,15 @@ namespace calc
                 }
                 if (flag == 0)
                 {
-                    textb1.Text = textb1.Text + ".";
+                    if (textb1.Text != "")
+                    {
+                        textb1.Text = textb1.Text + ".";
+                    }
+                    else
+                    {
+                        MessageBox.Show("The operator cannot be used before the number !");
+                        
+                    }
                 }
             }
             catch
@@ -184,9 +224,17 @@ namespace calc
         {
             try
             {
-                if (textb1.Text.Length > 0)
+                if (textb1.Text != "")
                 {
-                    textb1.Text = textb1.Text.Remove(textb1.Text.Length - 1);
+                    if (textb1.Text.Length > 0)
+                    {
+                        textb1.Text = textb1.Text.Remove(textb1.Text.Length - 1);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The operator cannot be used before the number !");
+
                 }
             }
             catch
@@ -210,8 +258,17 @@ namespace calc
         {
             try
             {
-                num1 = float.Parse(textb1.Text);
-                count = 5;
+                if (textb1.Text != "")
+                {
+                    num1 = float.Parse(textb1.Text);
+                    count = 5;
+                }
+                else
+                {
+                    MessageBox.Show("The operator cannot be used before the number !");
+
+                }
+
             }
             catch
             {
