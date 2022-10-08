@@ -63,36 +63,65 @@ namespace calc
 
         private void button18_Click(object sender, EventArgs e)
         {
-            num1 = float.Parse(textb1.Text);
-            textb1.Clear();
-            textb1.Focus();
-            count = 1;
+            try
+            {
+                num1 = float.Parse(textb1.Text);
+                textb1.Clear();
+                textb1.Focus();
+                count = 1;
+            }
+            catch
+            {
+                MessageBox.Show("Enter the numbers in true format !");
+            }
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            if (textb1.Text != "") { 
-            num1 = float.Parse(textb1.Text);
-                textb1.Clear();
-                textb1.Focus();
-                count = 2;
-        }
+            try
+            {
+                if (textb1.Text != "")
+                {
+                    num1 = float.Parse(textb1.Text);
+                    textb1.Clear();
+                    textb1.Focus();
+                    count = 2;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Enter the numbers in true format !");
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            num1 = float.Parse(textb1.Text);
-            textb1.Clear();
-            textb1.Focus();
-            count = 3;
+            try
+            {
+                num1 = float.Parse(textb1.Text);
+                textb1.Clear();
+                textb1.Focus();
+                count = 3;
+            }
+            catch
+            {
+                MessageBox.Show("Enter the numbers in true format !");
+            }
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            num1 = float.Parse(textb1.Text);
-            textb1.Clear();
-            textb1.Focus();
-            count = 4;
+            try
+            {
+                num1 = float.Parse(textb1.Text);
+                textb1.Clear();
+                textb1.Focus();
+                count = 4;
+            }
+            catch
+            {
+                MessageBox.Show("Enter the numbers in true format !");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -102,89 +131,162 @@ namespace calc
         }
 
         private void button6_Click(object sender, EventArgs e)
+        {   try
+            {
+                compute(count);
+            }
+            catch
+            {
+                MessageBox.Show("Enter the numbers in true format !");
+            }
+        }
+        #region useless lines
+        private void textb1_TextChanged(object sender, EventArgs e)
         {
-            compute(count);
+
         }
 
         private void Calculator_Load(object sender, EventArgs e)
         {
 
         }
+        #endregion
 
         private void button5_Click(object sender, EventArgs e)
-        {
-            int c = textb1.TextLength;
-            int flag = 0;
-            string text = textb1.Text;
-            for (int i = 0; i < c; i++)
+        {   try
             {
-                if (text[i].ToString() == ".")
+                int c = textb1.TextLength;
+                int flag = 0;
+                string text = textb1.Text;
+                for (int i = 0; i < c; i++)
                 {
-                    flag = 1; break;
+                    if (text[i].ToString() == ".")
+                    {
+                        flag = 1; break;
+                    }
+                    else
+                    {
+                        flag = 0;
+                    }
                 }
-                else
+                if (flag == 0)
                 {
-                    flag = 0;
+                    textb1.Text = textb1.Text + ".";
                 }
             }
-            if (flag == 0)
+            catch
             {
-                textb1.Text = textb1.Text + ".";
+                MessageBox.Show("Enter the numbers in true format !");
             }
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-             if (textb1.Text.Length > 0)
+            try
             {
-                textb1.Text = textb1.Text.Remove(textb1.Text.Length - 1);
+                if (textb1.Text.Length > 0)
+                {
+                    textb1.Text = textb1.Text.Remove(textb1.Text.Length - 1);
+                }
             }
-        }
-
-        private void textb1_TextChanged(object sender, EventArgs e)
-        {
-
+            catch
+            {
+                MessageBox.Show("Enter the numbers in true format !");
+            }
         }
 
         private void button19_Click(object sender, EventArgs e)
-        {
-            if (textb1.Text.Contains("-")) textb1.Text = textb1.Text.Remove(0, 1);
-            else textb1.Text = "-" + textb1.Text;
+        {   try
+            {
+                if (textb1.Text.Contains("-")) textb1.Text = textb1.Text.Remove(0, 1);
+                else textb1.Text = "-" + textb1.Text;
+            }
+            catch
+            {
+                MessageBox.Show("Enter the numbers in true format !");
+            }
         }
-
         private void button20_Click(object sender, EventArgs e)
         {
-
-            num1 = float.Parse(textb1.Text);
-            count = 5;
+            try
+            {
+                num1 = float.Parse(textb1.Text);
+                count = 5;
+            }
+            catch
+            {
+                MessageBox.Show("Enter the numbers in true format !");
+            }
         }
 
         public void compute(int count)
-{
-    switch (count)
-    {
-        case 1:
-            ans = num1 + float.Parse(textb1.Text);
-            textb1.Text = ans.ToString();
-            break;
-         case 2: 
-             ans = num1 - float.Parse(textb1.Text);
-                    textb1.Text = ans.ToString();
+        {
+            switch (count)
+            {
+                case 1:
+                    try
+                    {
+                        ans = num1 + float.Parse(textb1.Text);
+                        textb1.Text = ans.ToString();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Enter the numbers in true format !");
+                    }
+                    break;
+                case 2:
+                    try
+                    {
+                        ans = num1 - float.Parse(textb1.Text);
+                        textb1.Text = ans.ToString();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Enter the numbers in true format !");
+                    }
                     break;
                 case 3:
-                    ans = num1 * float.Parse(textb1.Text);
-                    textb1.Text = ans.ToString();
+                    try
+                    {
+                        ans = num1 * float.Parse(textb1.Text);
+                        textb1.Text = ans.ToString();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Enter the numbers in true format !");
+                    }
                     break;
                 case 4:
-                    ans = num1 / float.Parse(textb1.Text);
-                    textb1.Text = ans.ToString();
+                    try
+                    {
+                        if (float.Parse(textb1.Text) != 0)
+                        {
+                            ans = num1 / float.Parse(textb1.Text);
+                            textb1.Text = ans.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("The numbers cannot be divided by zero !");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Enter the numbers in true format !");
+                    }
                     break;
                 case 5:
-                    ans = num1 / 100;
-                    textb1.Text = ans.ToString();
+                    try
+                    {
+                        ans = num1 / 100;
+                        textb1.Text = ans.ToString();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Enter the numbers in true format !");
+                    }
                     break;
             }
-} 
+        }
 
     }
 }
